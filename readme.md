@@ -24,6 +24,7 @@ Export the environment variables required in [.env.example](./.env.example) into
 # Make sure all .env variables loaded (`source .env`), check with `echo $variable_name_here`
 make build && make dashboards
 ```
+dash
 
 After a successful startup, you can go directly to Grafana at `http://localhost:3000`. If you want to change your dashboards you can sign in at the lower left with `admin:admin`.
 
