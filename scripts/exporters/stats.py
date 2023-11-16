@@ -4,8 +4,7 @@ sentry_sdk.set_tag('script','statistics_api_exporter')
 
 df = pd.read_csv('https://api.llama.fi/simpleChainDataset/Ethereum?staking=true&doublecounted=true&liquidstaking=true')
 
-#print(df)
-#print(df.iloc[0])
+print(df)
 
 json_row = df.iloc[0:1].to_json(orient='records')
 # print(json_row)
