@@ -4,6 +4,7 @@ from datetime import datetime
 import sentry_sdk
 from pony.orm import db_session
 from yearn.entities import StatsData
+from tqdm import tqdm
 
 sentry_sdk.set_tag('script','defillama_api')
 
@@ -14,7 +15,7 @@ def main(protocol, timestamp, tvl):
     StatsData(chain="ETH", timestamp=timestamp, tvl=tvl)
 
 # Iterate over each row in the DataFrame
-for index, row in df.iterrows():
+for index, row in tqdm(df.iterrows(), total=df.shape[0]):
     # Get the protocol name
     protocol = row['Protocol']
 

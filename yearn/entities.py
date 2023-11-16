@@ -546,8 +546,9 @@ class PartnerHarvestEvent(db.Entity):
 class StatsData(db.Entity):
     chain = Required(Chain)
     timestamp = Required(datetime)
-    composite_key(chain, timestamp)
     protocol = Required(Decimal,38,18)
+    composite_key(chain, protocol, timestamp)
+
     
 
 
