@@ -543,6 +543,14 @@ class PartnerHarvestEvent(db.Entity):
     composite_index(chain, vault, wrapper)
     
 
+class StatsDatapoint(db.Entity):
+    chain = Required(Chain)
+    timestamp = Required(datetime)
+    composite_key(chain, timestamp)
+    ethtvl = Required(Decimal,38,18)
+    
+
+
 db.bind(
     provider="postgres",
     user=os.environ.get("PGUSER", "postgres"),
